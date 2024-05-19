@@ -1,7 +1,7 @@
 {
-  "name": "untitled-application",
+  "name": "test-issue-511",
   "version": "1.0.0",
-  "description": "Integrate Zapier with Untitled Application",
+  "description": "Integrate Zapier with Test Issue 511",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive -t 10000"

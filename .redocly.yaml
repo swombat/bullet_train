@@ -1,4 +1,4 @@
-organization: untitled_application
+organization: test_issue_511
 
 extends:
   - recommended
