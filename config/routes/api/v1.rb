@@ -31,7 +31,15 @@ shallow do
         # 🚅 super scaffolding will insert new integration installations above this line.
       end
 
-      resources :projects, concerns: [:sortable]
+      resources :projects, concerns: [:sortable] do
+        scope module: 'projects' do
+          resources :widgets, only: collection_actions, concerns: [:sortable]
+        end
+      end
+
+      namespace :projects do
+        resources :widgets, except: collection_actions, concerns: [:sortable]
+      end
     end
   end
 end

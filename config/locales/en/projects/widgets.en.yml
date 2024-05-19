@@ -1,0 +1,94 @@
+en:
+  projects/widgets: &widgets
+    label: &label Widgets
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Widget
+      create: Create Widget
+      edit: Edit Widget
+      update: Update Widget
+      destroy: Remove Widget
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{widget_name}? This will also remove any child resources and can't be undone.
+    widget:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Widget ID
+      project_id:
+        heading: Project ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Widgets"
+      index: "List Widgets"
+      create: "Add a New Widget"
+      member_actions: "Actions for an Individual Widget"
+      show: "Retrieve a Widget"
+      update: "Update a Widget"
+      destroy: "Delete a Widget"
+      fields: *fields
+    index:
+      section: "%{projects_possessive} Widgets"
+      contexts:
+        project:
+          header: Widgets
+          description: Below is a list of Widgets that have been added for %{project_name}.
+          description_empty: No Widgets have been added for %{project_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{widget_name}"
+      header: Widget Details
+      description: Below are the details we have for %{widget_name}.
+      manage_description: You'll also find options for updating these details or removing %{widget_name} from %{project_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Widget for %{project_name}"
+      header: New Widget Details
+      description: Please provide the details of the new Widget you'd like to add to %{project_name}.
+      form: *form
+    edit:
+      section: "%{widget_name}"
+      header: Edit Widget Details
+      description: You can update the details or settings for %{widget_name} below.
+      form: *form
+    notifications:
+      created: Widget was successfully created.
+      updated: Widget was successfully updated.
+      destroyed: Widget was successfully destroyed.
+  account:
+    projects:
+      widgets: *widgets
+  activerecord:
+    attributes:
+      projects/widget:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

@@ -1,15 +1,15 @@
-class Project < ApplicationRecord
+class Projects::Widget < ApplicationRecord
   include Sortable
   # 🚅 add concerns above.
 
   # 🚅 add attribute accessors above.
 
-  belongs_to :team
+  belongs_to :project
   # 🚅 add belongs_to associations above.
 
-  has_many :widgets, class_name: "Projects::Widget", dependent: :destroy, enable_cable_ready_updates: true
   # 🚅 add has_many associations above.
 
+  has_one :team, through: :project
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
@@ -22,7 +22,7 @@ class Project < ApplicationRecord
   # 🚅 add delegations above.
 
   def collection
-    team.projects
+    project.widgets
   end
 
   # 🚅 add methods above.

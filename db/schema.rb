@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_19_111803) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_19_111951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -193,6 +193,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_19_111803) do
     t.index ["team_id"], name: "index_projects_on_team_id"
   end
 
+  create_table "projects_widgets", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.integer "sort_order"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_projects_widgets_on_project_id"
+  end
+
   create_table "scaffolding_absolutely_abstract_creative_concepts", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.string "name"
@@ -367,6 +376,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_19_111803) do
   add_foreign_key "oauth_applications", "teams"
   add_foreign_key "oauth_stripe_accounts", "users"
   add_foreign_key "projects", "teams"
+  add_foreign_key "projects_widgets", "projects"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts", "teams"
   add_foreign_key "scaffolding_completely_concrete_tangible_things", "scaffolding_absolutely_abstract_creative_concepts", column: "absolutely_abstract_creative_concept_id"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "memberships"

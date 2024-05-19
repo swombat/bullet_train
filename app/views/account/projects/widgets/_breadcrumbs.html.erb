@@ -1,0 +1,8 @@
+<% widget ||= @widget %>
+<% project ||= @project || widget&.project %>
+<%= render 'account/projects/breadcrumbs', project: project %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, project, :widgets] %>
+<% if widget&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: widget.label_string, url: [:account, widget] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'projects/widgets' %>
