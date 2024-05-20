@@ -215,3 +215,6 @@ gem "pry"
 # 🚅 super scaffolding will insert new oauth providers above this line.
 
 gem "swombat_tools", path: "../swombat_tools"
+gem "anthropic", git: "https://github.com/swombat/anthropic"
+gem "ruby-openai"
+gem "ollama-ai"
